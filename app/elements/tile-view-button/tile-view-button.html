@@ -1,0 +1,16 @@
+<link rel="import" href="..\..\bower_components/polymer/polymer.html">
+
+<polymer-element name="tile-view-button" attributes="mode">
+  <template>
+    <paper-icon-button icon="view-module" hidden?="{{mode !== 'fill'}}"></paper-icon-button>
+    <paper-icon-button icon="view-stream" hidden?="{{mode !== 'list'}}"></paper-icon-button>
+    <paper-icon-button icon="view-quilt" hidden?="{{mode !== 'quilt'}}"></paper-icon-button>
+  </template>
+  <script>
+    (function () {
+      Polymer({
+
+      });
+    })();
+  </script>
+</polymer-element>

@@ -1,0 +1,17 @@
+<link rel="import" href="..\..\bower_components/polymer/polymer.html">
+
+<polymer-element name="tile-view-container" attributes="mode">
+  <template>
+    <link rel="stylesheet" href="tile-view-container.css">
+    <div id="container" class="{{mode}}"><content></content></div>
+  </template>
+  <script>
+    (function () {
+      Polymer('tile-view-container', {
+
+        mode: 'fill'
+
+      });
+    })();
+  </script>
+</polymer-element>

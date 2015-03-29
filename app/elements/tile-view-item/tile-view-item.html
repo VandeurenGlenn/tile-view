@@ -1,0 +1,51 @@
+<link rel="import" href="..\..\bower_components/polymer/polymer.html">
+
+<polymer-element name="tile-view-item" attributes="name image">
+  <template>
+    <link rel="stylesheet" href="tile-view-item.css">
+    <template if="{{default}}">
+      <img src="{{image}}"></img>
+      <h2>{{name}}</h2>
+    </template>
+
+    <template if="{{tooltip}}">
+      <div layout horizontal center-center flex>
+        <core-tooltip label='{{name}}' position="bottom">
+          <img src="{{image.local}}"></img>
+        </core-tooltip>
+      </div>
+    </template>
+
+    <!-- TODO: Add flip method -->
+    <template if="{{flip}}">
+
+    </template>
+
+    <!-- TODO: Add overlay method -->
+    <template if="{{overlay}}">
+
+    </template>
+
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        publish: {
+          default: {value: false, reflect: true},
+          tooltip: {value: false, reflect: true},
+          flip: {value: false, reflect: true},
+          overlay: {value: false, reflect: true}
+        },
+
+        ready: function() {
+          if(!this.tooltip && !this.flip && !this.overlay) {
+            this.default = true;
+          }else{
+            this.default = false;
+          }
+        }
+
+      });
+    })();
+  </script>
+</polymer-element>

@@ -1,0 +1,26 @@
+#container.list {
+  width: calc(50%);
+  margin: 25px auto;
+}
+#container.fill {
+  width: calc(100% - 4px);
+  margin: 4px 2px;
+}
+#container.quilt {
+  width: calc(66%);
+  margin: 25px auto;
+}
+#container.list ::content tile-view-item {
+  width: calc(100% - 20px);
+  margin: 10px;
+}
+#container.fill ::content tile-view-item {
+  float: left;
+  width: calc(100% / 5 - 4px);
+  margin: 0 2px 2px 2px;
+}
+#container.quilt ::content tile-view-item {
+  float: left;
+  width: calc(100% / 2 - 20px);
+  margin: 10px;
+}

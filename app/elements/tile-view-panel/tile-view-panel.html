@@ -1,0 +1,44 @@
+<link rel="import" href="..\..\bower_components/polymer/polymer.html">
+
+<polymer-element name="tile-view-panel" attributes="mode">
+  <template>
+    <link rel="stylesheet" href="tile-view-panel.css">
+    <core-header-panel class="{{mode}}">
+      <content select="core-toolbar, [toolbar]"></content>
+      <tile-view-container mode="{{mode}}">
+        <content select="tile-view-items, [tiles]"></content>
+      </tile-view-container>
+
+    </core-header-panel>
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        toggleAttribute: 'toggle-tile-view-mode',
+
+        eventDelegates: {
+          tap: 'tapHandler'
+        },
+
+        ready: function () {
+          this.mode = 'list';
+        },
+
+        tapHandler: function(e) {
+          if(e.target && this.toggleAttribute && e.target.hasAttribute(this.toggleAttribute) && this.mode === 'fill' && this.mode !== 'list' && this.mode !== 'quilt') {
+            this.mode = 'list';
+          }else if(e.target && this.toggleAttribute && e.target.hasAttribute(this.toggleAttribute) && this.mode !== 'fill' && this.mode === 'list' && this.mode !== 'quilt') {
+            this.mode = 'quilt';
+          }
+          else if(e.target && this.toggleAttribute && e.target.hasAttribute(this.toggleAttribute) && this.mode !== 'fill' && this.mode !== 'list' && this.mode === 'quilt') {
+            this.mode = 'fill'
+          }
+        },
+
+        modeChanged: function() {
+          this.fire('tile-view-mode-changed', {mode: this.mode});
+        }
+      });
+    })();
+  </script>
+</polymer-element>

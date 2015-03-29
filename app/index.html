@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tile View</title>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild-->
+
+  <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+  <!-- endbuild -->
+
+  <!-- will be replaced with elements/elements.vulcanized.html -->
+  <link rel="import" href="elements/elements.html">
+  <!-- endreplace-->
+</head>
+
+<body unresolved fullbleed layout vertical>
+  <template is="auto-binding" id="app">
+    <tile-view-panel mode="{{mode}}" fit>
+
+        <!-- Toolbar -->
+        <core-toolbar justify="around">
+          <span>{{appName}}</span>
+          <tile-view-button mode="{{mode}}" toggle-tile-view-mode></tile-view-button>
+        </core-toolbar>
+
+        <!-- Tiles -->
+        <tile-view-items>
+          <template repeat="{{item in items}}" >
+            <tile-view-item name="{{item.name}}" image="{{item.image}}" tooltip></tile-view-item>
+          </template>
+        </tile-view-items>
+
+        <!-- TODO: notify the user when changing the mode -->
+
+    <tile-view-panel>
+
+  </template>
+
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js"></script>
+  <!-- endbuild-->
+</body>
+
+</html>
